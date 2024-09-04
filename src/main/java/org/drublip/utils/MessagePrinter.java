@@ -1,10 +1,10 @@
 package org.drublip.utils;
 
 import com.diogonunes.jcolor.Attribute;
-
 import java.time.LocalDateTime;
 
-import static com.diogonunes.jcolor.Ansi.colorize;
+
+import  com.diogonunes.jcolor.Ansi;
 
 public class MessagePrinter {
     Class<?> source;
@@ -36,7 +36,7 @@ public class MessagePrinter {
     public void success(String message) {
         String text = String.format("[%s] - [%s] - [SUCCESS] : %s", LocalDateTime.now(), source.getName(), message);
         if (richColors) {
-            System.out.println(colorize(text, Attribute.GREEN_TEXT()));
+            System.out.println(Ansi.colorize(text, Attribute.GREEN_TEXT()));
         }
         System.out.println(text);
     }
@@ -51,7 +51,7 @@ public class MessagePrinter {
     public void error(String message) {
         String text = String.format("[%s] - [%s] - [ERROR]   : %s", LocalDateTime.now(), source.getName(), message);
         if (richColors) {
-            System.out.println(colorize(text, Attribute.GREEN_TEXT()));
+            System.out.println(Ansi.colorize(text, Attribute.GREEN_TEXT()));
         }
         System.out.println(text);
     }
@@ -65,9 +65,9 @@ public class MessagePrinter {
     public static void log(MessageType type, String message) {
         String text = String.format("[%s] - [%s] : %s", LocalDateTime.now(), type, message);
         if (type == MessageType.ERROR) {
-            System.out.println(colorize(text, Attribute.RED_TEXT()));
+            System.out.println(Ansi.colorize(text, Attribute.RED_TEXT()));
         } else if (type == MessageType.SUCCESS) {
-            System.out.println(colorize(text, Attribute.GREEN_TEXT()));
+            System.out.println(Ansi.colorize(text, Attribute.GREEN_TEXT()));
         } else {
             System.out.println(text);
         }
