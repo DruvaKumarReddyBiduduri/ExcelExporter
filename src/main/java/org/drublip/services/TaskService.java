@@ -18,13 +18,12 @@ import java.util.ArrayList;
 public class TaskService {
     Connection connection;
     public final static String[] SHEET_HEADERS = {"Id", "Name", "Description", "Status", "Priority", "CreatedAt", "UpdatedAt", "UserId", "BoardId"};
-    public final static int CELLS = 5;
     ExcelService excelService;
     MessagePrinter messagePrinter;
 
     public TaskService(ExcelService excelService) {
         this.excelService = excelService;
-        this.messagePrinter = new MessagePrinter(TaskService.class,false);
+        this.messagePrinter = new MessagePrinter(TaskService.class, false);
         connection = DatabaseService.connect();
     }
 
@@ -59,16 +58,16 @@ public class TaskService {
 
     /**
      * Exports task data to an Excel sheet.
-     *
+     * <p>
      * This function retrieves a list of tasks from the database,
      * fills an Excel sheet with the task data, and exports the sheet to a file.
      *
-     * @return          None
+     * @return None
      */
     public void toExcelSheet() {
         ArrayList<Entity> tasks = getTasks();
         messagePrinter.info("Filling the data into Sheet");
-        excelService.toSheet("output.xlsx", "tasks", SHEET_HEADERS, tasks);
+        excelService.toSheet( "tasks", SHEET_HEADERS, tasks);
         messagePrinter.success("Successfully Filled the task data into sheet");
     }
 }

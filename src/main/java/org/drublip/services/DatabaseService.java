@@ -10,7 +10,6 @@ import java.sql.SQLException;
 
 public final class DatabaseService {
     public static Connection connection;
-    public static boolean connected = false;
 
     /**
      * Initializes a database connection if it does not already exist.

@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class BoardService {
     Connection connection;
     public final static String[] SHEET_HEADERS = {"Id", "Name", "CreatedAt", "UpdatedAt", "UserId"};
-    public final static int CELLS = 5;
     ExcelService excelService;
     MessagePrinter messagePrinter;
 
@@ -55,7 +54,7 @@ public class BoardService {
     public void toExcelSheet() {
         ArrayList<Entity> boards = getBoards();
         messagePrinter.info("Filling the Board Sheet");
-        excelService.toSheet("output.xlsx", "boards", SHEET_HEADERS, boards);
+        excelService.toSheet("boards", SHEET_HEADERS, boards);
         messagePrinter.success("Successfully Filled the board data into sheet");
     }
 }

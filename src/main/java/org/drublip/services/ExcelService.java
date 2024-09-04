@@ -63,7 +63,7 @@ public class ExcelService {
      * Writes data to an Excel sheet.
      * This function creates a new sheet with the given name and fills it with the data from the provided list of entities.
      */
-    public void toSheet(String filename, String sheetName, String[] headers, ArrayList<Entity> sheetData) {
+    public void toSheet(String sheetName, String[] headers, ArrayList<Entity> sheetData) {
         Sheet sheet = workbook.createSheet(sheetName);
         setColumnWidth(sheet, headers.length);
         setSheetHeader(headers, sheet);

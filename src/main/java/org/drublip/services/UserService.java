@@ -19,12 +19,12 @@ import java.util.ArrayList;
 public class UserService {
     Connection connection;
     public final static String[] SHEET_HEADERS = {"Id", "Name", "Email", "Password", "CreatedAt", "UpdatedAt"};
-    public final static int CELLS = 6;
     ExcelService excelService;
     MessagePrinter messagePrinter;
 
     /**
      * Constructs a new UserService instance with the given ExcelService.
+     *
      * @param excelService The ExcelService instance to use.
      */
     public UserService(ExcelService excelService) {
@@ -65,7 +65,7 @@ public class UserService {
     public void toExcelSheet() {
         ArrayList<Entity> users = getUsers();
         messagePrinter.info("Filling the User Sheet");
-        excelService.toSheet("output.xlsx", "users", SHEET_HEADERS, users);
+        excelService.toSheet("users", SHEET_HEADERS, users);
         messagePrinter.success("Successfully filled the user data into sheet");
     }
 }
