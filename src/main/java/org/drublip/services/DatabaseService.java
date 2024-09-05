@@ -27,7 +27,7 @@ public final class DatabaseService {
     /**
      * Returns the current database connection.
      */
-    public static Connection connect() {
+    public static Connection getConnection() {
         return connection;
     }
 }

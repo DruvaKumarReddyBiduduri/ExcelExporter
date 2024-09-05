@@ -30,7 +30,7 @@ public class UserService {
     public UserService(ExcelService excelService) {
         this.excelService = excelService;
         this.messagePrinter = new MessagePrinter(UserService.class, false);
-        connection = DatabaseService.connect();
+        connection = DatabaseService.getConnection();
     }
 
     /**

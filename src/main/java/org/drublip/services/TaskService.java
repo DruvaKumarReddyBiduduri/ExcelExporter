@@ -24,7 +24,7 @@ public class TaskService {
     public TaskService(ExcelService excelService) {
         this.excelService = excelService;
         this.messagePrinter = new MessagePrinter(TaskService.class, false);
-        connection = DatabaseService.connect();
+        connection = DatabaseService.getConnection();
     }
 
     /**

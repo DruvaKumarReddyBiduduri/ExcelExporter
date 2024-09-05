@@ -19,7 +19,7 @@ public class BoardService {
     public BoardService(ExcelService excelService) {
         this.excelService = excelService;
         this.messagePrinter = new MessagePrinter(BoardService.class, false);
-        connection = DatabaseService.connect();
+        connection = DatabaseService.getConnection();
     }
 
     /**
