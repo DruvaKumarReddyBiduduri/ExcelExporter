@@ -19,7 +19,7 @@ public final class DatabaseService {
     public static void initialize() throws SQLException {
         if (connection == null) {
             MessagePrinter.log(MessageType.INFO, "Initializing Database Connection");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tasks", "root", ".Adgjmptw5");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tasks", "root", "Your Password");
             MessagePrinter.log(MessageType.SUCCESS, "Successfully Established a Connection to database");
         }
     }
