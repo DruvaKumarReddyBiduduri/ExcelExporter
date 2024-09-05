@@ -23,7 +23,7 @@ public class TaskService {
 
     public TaskService(ExcelService excelService) {
         this.excelService = excelService;
-        this.messagePrinter = new MessagePrinter(TaskService.class, false);
+        this.messagePrinter = new MessagePrinter(this.getClass().getName(), false);
         connection = DatabaseService.getConnection();
     }
 

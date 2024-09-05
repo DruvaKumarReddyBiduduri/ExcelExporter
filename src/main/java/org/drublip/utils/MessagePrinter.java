@@ -7,10 +7,10 @@ import java.time.LocalDateTime;
 import  com.diogonunes.jcolor.Ansi;
 
 public class MessagePrinter {
-    Class<?> source;
+    String source;
     boolean richColors = false;
 
-    public MessagePrinter(Class<?> source, boolean richColors) {
+    public MessagePrinter(String source, boolean richColors) {
         this.source = source;
         this.richColors = richColors;
     }
@@ -22,7 +22,7 @@ public class MessagePrinter {
      * @param message the message to be printed
      */
     public void info(String message) {
-        String text = String.format("[%s] - [%s] - [INFO]    : %s", LocalDateTime.now(), source.getName(), message);
+        String text = String.format("[%s] - [%s] - [INFO]    : %s", LocalDateTime.now(), source, message);
         System.out.println(text);
     }
 
@@ -34,7 +34,7 @@ public class MessagePrinter {
      * @param message    the success message to be printed
      */
     public void success(String message) {
-        String text = String.format("[%s] - [%s] - [SUCCESS] : %s", LocalDateTime.now(), source.getName(), message);
+        String text = String.format("[%s] - [%s] - [SUCCESS] : %s", LocalDateTime.now(), source, message);
         if (richColors) {
             System.out.println(Ansi.colorize(text, Attribute.GREEN_TEXT()));
         }
@@ -49,7 +49,7 @@ public class MessagePrinter {
      * @param message    the error message to be printed
      */
     public void error(String message) {
-        String text = String.format("[%s] - [%s] - [ERROR]   : %s", LocalDateTime.now(), source.getName(), message);
+        String text = String.format("[%s] - [%s] - [ERROR]   : %s", LocalDateTime.now(), source, message);
         if (richColors) {
             System.out.println(Ansi.colorize(text, Attribute.GREEN_TEXT()));
         }

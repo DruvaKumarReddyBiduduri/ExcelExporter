@@ -18,7 +18,7 @@ public class BoardService {
 
     public BoardService(ExcelService excelService) {
         this.excelService = excelService;
-        this.messagePrinter = new MessagePrinter(BoardService.class, false);
+        this.messagePrinter = new MessagePrinter(this.getClass().getName(), false);
         connection = DatabaseService.getConnection();
     }
 

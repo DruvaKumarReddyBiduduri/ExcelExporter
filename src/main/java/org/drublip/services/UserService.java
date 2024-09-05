@@ -29,7 +29,7 @@ public class UserService {
      */
     public UserService(ExcelService excelService) {
         this.excelService = excelService;
-        this.messagePrinter = new MessagePrinter(UserService.class, false);
+        this.messagePrinter = new MessagePrinter(this.getClass().getName(), false);
         connection = DatabaseService.getConnection();
     }
 
