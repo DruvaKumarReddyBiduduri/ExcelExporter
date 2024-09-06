@@ -4,7 +4,6 @@ package org.drublip;
 import org.drublip.services.*;
 import org.drublip.utils.MessagePrinter;
 import org.drublip.utils.MessageType;
-
 import java.sql.SQLException;
 
 public class Main {
@@ -24,7 +23,7 @@ public class Main {
 
             service.writeToFile("output.xlsx");
             MessagePrinter.log(MessageType.SUCCESS, "successfully exported data into a excel file");
-        } catch (SQLException e) {
+        } catch (Exception e) {
             MessagePrinter.log(MessageType.ERROR, "Error establishing connection to database cause : " + e.getMessage());
         }
     }

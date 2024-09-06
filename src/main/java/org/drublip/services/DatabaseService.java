@@ -16,8 +16,9 @@ public final class DatabaseService {
      *
      * @throws SQLException if a database access error occurs
      */
-    public static void initialize() throws SQLException {
+    public static void initialize() throws SQLException, ClassNotFoundException {
         if (connection == null) {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             MessagePrinter.log(MessageType.INFO, "Initializing Database Connection");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tasks", "root", "Your Password");
             MessagePrinter.log(MessageType.SUCCESS, "Successfully Established a Connection to database");
